@@ -5,14 +5,15 @@
 # or to provide custom queries or build logic.
 #
 #
+---
 name: "CodeQL"
-
+# yamllint disable-line rule:truthy
 on:
   push:
-    branches: [ "1.19", "1.20" ]
+    branches: ["1.19", "1.20"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "1.19", "1.20" ]
+    branches: ["1.19", "1.20"]
   schedule:
     - cron: '27 15 * * 4'
 
@@ -28,7 +29,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'java' ]
+        language: ['java']
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
         # Use only 'java' to analyze code written in Java, Kotlin or both
         # Use only 'javascript' to analyze code written in JavaScript, TypeScript or both

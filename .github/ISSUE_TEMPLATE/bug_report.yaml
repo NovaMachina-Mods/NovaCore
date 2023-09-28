@@ -1,3 +1,4 @@
+---
 name: Bug Report
 description: Create a report to help us improve
 title: "[BUG] <title>"
@@ -65,10 +66,10 @@ body:
       required: false
   - type: textarea
     attributes:
-        label: Log File
-        description: |
-          Upload your log file with this issue. You can upload it here or using PasteBin, GitHub Gist, or mclo.gs.
+      label: Log File
+      description: |
+        Upload your log file with this issue. You can upload it here or using PasteBin, GitHub Gist, or mclo.gs.
 
-          Tip: You can attach log files by clicking this area to highlight it and then dragging files in.
+        Tip: You can attach log files by clicking this area to highlight it and then dragging files in.
     validations:
       required: true

@@ -37,6 +37,7 @@ public class ItemDefinition<T extends Item> implements ItemLike {
   }
 
   public enum ItemType {
+    CUSTOM,
     TOOL,
     OTHER;
   }

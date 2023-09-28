@@ -11,6 +11,12 @@ import novamachina.novacore.world.item.ItemDefinition;
 public class BlockDefinition<T extends Block> extends ItemDefinition<BlockItem> {
   private final T block;
 
+  public BlockDefinition(
+      String englishName, ResourceLocation id, T block, BlockItem item, ItemType type) {
+    super(englishName, id, item, type);
+    this.block = Objects.requireNonNull(block, "block");
+  }
+
   public BlockDefinition(String englishName, ResourceLocation id, T block, BlockItem item) {
     super(englishName, id, item, ItemType.OTHER);
     this.block = Objects.requireNonNull(block, "block");
