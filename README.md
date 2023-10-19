@@ -34,14 +34,14 @@ Artwork of this mod is licensed under an All rights reserved license: Copyright 
 
 # Maven
 
-NovaCore is avaliable via the [NovaMachina Mods artifact repository](https://cloudsmith.io/~novamachina-mods/repos/novacore/packages/) for developers wishing to utilize its API.
+NovaCore is avaliable via the [NovaMachina Mods artifact repository](https://cloudsmith.io/~novamachina-mods/repos/release/packages/) for developers wishing to utilize its API.
 
 Add the following to your `build.gradle`:
 
 ```groovy
 repositories {
     maven {
-        url = "https://dl.cloudsmith.io/public/novamachina-mods/novacore/maven/"
+        url = "https://dl.cloudsmith.io/public/novamachina-mods/release/maven/"
 
     }
 }
@@ -51,7 +51,7 @@ dependencies {
 }
 ```
 
-Add the following to your `gradle.properties` (see [Maven](https://cloudsmith.io/~novamachina-mods/repos/novacore/packages/) for the list of available versions):
+Add the following to your `gradle.properties` (see [Maven](https://cloudsmith.io/~novamachina-mods/repos/release/packages/) for the list of available versions):
 
 ```properties
 novacore_version: 0.1.0-alpha
