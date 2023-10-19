@@ -1,13 +1,13 @@
 ---
-name: Build Pipeline
+name: Build 1.20
 # yamllint disable-line rule:truthy
 on:
   push:
     branches:
-      - "1.20"
+      - 1.20
   pull_request:
     branches:
-      - "1.20"
+      - 1.20
 
 jobs:
   build:
