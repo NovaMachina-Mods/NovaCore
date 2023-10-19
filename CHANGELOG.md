@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ## [Unreleased](https://github.com/NovaMachina-Mods/NovaCore/compare/v1.0.0...HEAD)
 
 ### Added
+- Requires NeoForge 47.1.55+
 - Bootstrap classes for Neoforge registries
 - Common Block Entity renderer
 - Mostly framework agnostic definitions for:
@@ -34,4 +35,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   - Language
 - Common utility classes
 
-## [1.0.0](https://github.com/NovaMachina-Mods/ExNihiloSequentia/compare/v5.0.0...HEAD) - 2023-01-01
+## [1.0.0](https://github.com/NovaMachina-Mods/NovaCore/compare/v1.0.0...HEAD) - 2023-01-01
