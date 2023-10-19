@@ -74,6 +74,7 @@ jobs:
           gradle-version: wrapper
           arguments: publish
       - name: Deploy to CurseForge
+        if: false
         env:
           CURSEFORGE_KEY: ${{ secrets.CURSEFORGE_APIKEY }}
         uses: gradle/gradle-build-action@v2
@@ -81,6 +82,7 @@ jobs:
           gradle-version: wrapper
           arguments: publishCurseForge
       - name: Deploy to Modrinth
+        if: false
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
         uses: gradle/gradle-build-action@v2
