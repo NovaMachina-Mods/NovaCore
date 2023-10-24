@@ -2,9 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Forge Semantic Versioning](https://docs.minecraftforge.net/en/1.20.x/gettingstarted/versioning/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [NeoForged Semantic Versioning](https://docs.neoforged.net/docs/gettingstarted/versioning).
 
-## [Unreleased](https://github.com/NovaMachina-Mods/NovaCore/compare/v1.0.0...HEAD)
+## [1.0.0](https://github.com/NovaMachina-Mods/NovaCore/compare/v1.0.0...HEAD) - 2023-10-24
 
 ### Added
 - Requires NeoForge 47.1.55+
@@ -34,5 +34,3 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   - Tags
   - Language
 - Common utility classes
-
-## [1.0.0](https://github.com/NovaMachina-Mods/NovaCore/compare/v1.0.0...HEAD) - 2023-01-01
