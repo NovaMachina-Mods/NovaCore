@@ -346,5 +346,5 @@ static String getBuildNumber() {
     if(refName.endsWith("dev")) {
         return "SNAPSHOT"
     }
-    return System.getenv("GITHUB_RUN_NUMBER") ?: "SNAPSHOT"
+    return System.getenv("GITHUB_RUN_NUMBER") ?: "LOCAL"
 }
