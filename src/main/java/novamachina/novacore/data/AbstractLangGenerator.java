@@ -3,7 +3,7 @@ package novamachina.novacore.data;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 import novamachina.novacore.util.StringUtils;
 import novamachina.novacore.world.item.ItemDefinition;
 import novamachina.novacore.world.level.block.BlockDefinition;

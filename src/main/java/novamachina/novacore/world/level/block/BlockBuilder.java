@@ -2,8 +2,10 @@ package novamachina.novacore.world.level.block;
 
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ColoredFallingBlock;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -167,7 +169,7 @@ public class BlockBuilder {
   }
 
   public FallingBlock buildFallingBlock() {
-    return new FallingBlock(properties);
+    return new ColoredFallingBlock(new ColorRGBA(-8356741), properties);
   }
 
   public LiquidBlock buildLiquidBlock(Supplier<? extends FlowingFluid> fluid) {

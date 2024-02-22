@@ -1,6 +1,5 @@
 package novamachina.novacore.client.renderer.blockentity;
 
-import javax.annotation.Nonnull;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -16,10 +15,9 @@ public abstract class BlockEntityRenderer<T extends BlockEntity>
   }
 
   // Added from ExCompressum, thanks to Blay09 for that piece of code :D
-  @Nonnull
-  public static BlockState getStateFromItemStack(@Nonnull final ItemStack itemStack) {
+  public static BlockState getStateFromItemStack(ItemStack itemStack) {
     if (itemStack.getItem() instanceof BlockItem blockItem) {
-      @Nonnull final Block block = blockItem.getBlock();
+      Block block = blockItem.getBlock();
       try {
         return block.defaultBlockState();
       } catch (Exception e) {

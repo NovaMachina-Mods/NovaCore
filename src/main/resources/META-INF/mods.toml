@@ -1,27 +1,28 @@
-modLoader = "javafml" #mandatory
-loaderVersion = "${loader_version_range}" #mandatory
-license = "${mod_license}"
-issueTrackerURL = "${git_url}/issues" #optional
+modLoader="javafml"
+loaderVersion="[1,)"
+issueTrackerURL="https://github.com/NovaMachina-Mods/NovaCore/issues"
+license="CC BY-NC-SA 4.0"
 
-[[mods]] #mandatory
-modId = "${mod_id}" #mandatory
-version = "${mod_version}" #mandatory
-displayName = "${mod_name}" #mandatory
-updateJSONURL = "https://api.modrinth.com/updates/${modrinth_project_id}/forge_updates.json"
-displayURL = "${curseforge_url}" #optional
-logoFile = "logo.png" #optional
-#credits = "Thanks to McJty for tutorials and those that created the Ex Nihilo series" #optional
-authors = "${mod_authors}" #optional
-description = '''${mod_description}'''
-[[dependencies.${mod_id}]] #optional
-modId = "forge" #mandatory
-mandatory = true #mandatory
-versionRange = "${forge_version_range}" #mandatory
-ordering = "NONE"
-side = "BOTH"
-[[dependencies.${mod_id}]]
-modId = "minecraft"
-mandatory = true
-versionRange = "${minecraft_version_range}"
-ordering = "NONE"
-side = "BOTH"
+[[mods]]
+    modId="novacore"
+    logoFile="novacore.png"
+    version="2.0.0"
+    displayName="NovaCore"
+    updateJSONURL="https://api.modrinth.com/updates/engHtMVe/forge_updates.json"
+    authors="NovaMachina"
+    description='''NovaCore is a library mod for all NovaMachina Mods'''
+
+[[dependencies.novacore]]
+    modId="neoforge"
+    type="required"
+    versionRange="[20.4, 21)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.novacore]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.20.4,1.21)"
+    ordering="NONE"
+    side="BOTH"
+

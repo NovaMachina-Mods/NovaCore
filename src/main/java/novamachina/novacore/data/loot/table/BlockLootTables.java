@@ -15,7 +15,6 @@ import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import novamachina.novacore.world.level.block.BlockDefinition;
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 public abstract class BlockLootTables extends BlockLootSubProvider {
   private final Set<Block> knownBlocks = new HashSet<>();
@@ -40,7 +39,7 @@ public abstract class BlockLootTables extends BlockLootSubProvider {
   }
 
   @Override
-  public LootTable.@NonNull Builder createSingleItemTable(@NonNull ItemLike item) {
+  public LootTable.Builder createSingleItemTable(ItemLike item) {
     return LootTable.lootTable()
         .withPool(
             applyExplosionCondition(
@@ -51,10 +50,10 @@ public abstract class BlockLootTables extends BlockLootSubProvider {
                     .add(LootItem.lootTableItem(item))));
   }
 
-  protected static LootTable.@NonNull Builder createSelfDropDispatchTable(
+  protected static LootTable.Builder createSelfDropDispatchTable(
       Block block,
-      LootItemCondition.@NonNull Builder conditionBuilder,
-      LootPoolEntryContainer.@NonNull Builder<?> entry) {
+      LootItemCondition.Builder conditionBuilder,
+      LootPoolEntryContainer.Builder<?> entry) {
     return LootTable.lootTable()
         .withPool(
             LootPool.lootPool()

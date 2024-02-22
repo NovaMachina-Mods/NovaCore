@@ -2,8 +2,8 @@ package novamachina.novacore.core.registries;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.loot.IGlobalLootModifier;
-import net.minecraftforge.common.loot.LootModifier;
+import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
+import net.neoforged.neoforge.common.loot.LootModifier;
 import novamachina.novacore.common.loot.modifier.LootModifierDefinition;
 
 public class LootModifierRegistry

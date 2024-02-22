@@ -2,7 +2,6 @@ package novamachina.novacore.util;
 
 import java.text.DecimalFormat;
 import java.text.Format;
-import javax.annotation.Nonnull;
 import org.apache.commons.lang3.text.WordUtils;
 
 public class StringUtils {
@@ -11,11 +10,11 @@ public class StringUtils {
 
   private StringUtils() {}
 
-  public static String formatPercent(@Nonnull final Float num) {
+  public static String formatPercent(Float num) {
     return PERCENT_FORMAT.format(num);
   }
 
-  public static String capitalize(@Nonnull final String input) {
+  public static String capitalize(String input) {
     //noinspection deprecation
     return WordUtils.capitalizeFully(input);
   }
