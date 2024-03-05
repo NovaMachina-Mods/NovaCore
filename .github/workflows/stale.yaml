@@ -3,7 +3,7 @@ name: 'Close stale issues'
 # yamllint disable-line rule:truthy
 on:
   schedule:
-    - cron: '30 1 * * *'
+    - cron: '30 1 * * 0'
 
 jobs:
   stale:
