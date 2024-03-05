@@ -1,16 +1,7 @@
-[//]: # (<p align="center">)
-
-[//]: # (    <a href="https://www.curseforge.com/minecraft/mc-mods/ex-nihilo-sequentia"><img src="https://cf.way2muchnoise.eu/full_400012_downloads.svg" /></a>)
-
-[//]: # (    <a href="https://www.curseforge.com/minecraft/mc-mods/ex-nihilo-sequentia"><img src="https://cf.way2muchnoise.eu/versions/400012.svg" /></a>)
-
-[//]: # (    <a href="https://github.com/NovaMachina-Mods/ExNihiloSequentia/blob/1.19/LICENSE"><img alt="GitHub license" src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-brightgreen"></a>)
-
-[//]: # (    <a href="https://github.com/NovaMachina-Mods/ExNihiloSequentia/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/NovaMachina-Mods/ExNihiloSequentia"></a>)
-
-[//]: # (    <a href="https://github.com/NovaMachina-Mods/ExNihiloSequentia/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/NovaMachina-Mods/ExNihiloSequentia"></a>)
-
-[//]: # (</p>)
+![CurseForge Downloads](https://img.shields.io/curseforge/dt/923669?style=for-the-badge&logo=curseforge)
+![CurseForge Version](https://img.shields.io/curseforge/v/923669?style=for-the-badge&logo=curseforge)
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/engHtMVe?style=for-the-badge&logo=modrinth)
+![Modrinth Version](https://img.shields.io/modrinth/v/engHtMVe?style=for-the-badge&logo=modrinth)
 
 # NovaCore for Minecraft 1.20
 
