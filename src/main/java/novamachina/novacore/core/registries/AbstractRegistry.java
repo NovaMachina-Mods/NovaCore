@@ -5,7 +5,7 @@ import java.util.List;
 import net.minecraft.resources.ResourceLocation;
 
 public abstract class AbstractRegistry<T> {
-  private final List<T> registry = new ArrayList();
+  private final List<T> registry = new ArrayList<>();
   private final String modId;
 
   protected AbstractRegistry(String modId) {

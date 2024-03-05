@@ -4,9 +4,10 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
 
-public abstract class Recipe implements net.minecraft.world.item.crafting.Recipe<Container> {
+public abstract class AbstractRecipe implements Recipe<Container> {
 
   public abstract void write(FriendlyByteBuf buffer);
 

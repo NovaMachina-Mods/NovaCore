@@ -7,9 +7,9 @@ import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import novamachina.novacore.world.item.crafting.Recipe;
+import novamachina.novacore.world.item.crafting.AbstractRecipe;
 
-public abstract class RecipeBuilder<T extends Recipe> {
+public abstract class RecipeBuilder<T extends AbstractRecipe> {
 
   protected final RecipeSerializer<?> serializer;
 

@@ -8,7 +8,6 @@ import novamachina.novacore.core.IRegistry;
 
 public class NeoforgeLootModifierRegistry
     implements IRegistry<LootModifierDefinition<? extends LootModifier>> {
-  public NeoforgeLootModifierRegistry() {}
 
   public void register(LootModifierDefinition<? extends LootModifier> entry) {
     Registry.register(

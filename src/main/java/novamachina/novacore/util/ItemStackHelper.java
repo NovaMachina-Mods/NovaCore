@@ -9,6 +9,9 @@ import net.minecraft.world.item.ItemStack;
 import org.slf4j.Logger;
 
 public class ItemStackHelper {
+
+  private ItemStackHelper() {}
+
   private static final Logger log = org.slf4j.LoggerFactory.getLogger(ItemStackHelper.class);
 
   public static ItemStack deserialize(JsonElement json) {

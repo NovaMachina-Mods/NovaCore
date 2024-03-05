@@ -4,7 +4,7 @@ import java.util.Objects;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 
-public record RecipeSerializerDefinition<T extends Recipe>(
+public record RecipeSerializerDefinition<T extends AbstractRecipe>(
     ResourceLocation id, RecipeSerializer<T> recipeSerializer) {
   public RecipeSerializerDefinition {
     Objects.requireNonNull(id, "id");

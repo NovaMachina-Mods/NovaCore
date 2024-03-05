@@ -19,8 +19,8 @@ public class IngredientUtils {
       item2 = Arrays.toString(i2.getItems());
     } catch (Exception e) {
       log.debug("Cannot compare ingredients");
-      log.debug("Ingredient 1: " + Arrays.toString(i1.getItems()));
-      log.debug("Ingredient 2: " + Arrays.toString(i2.getItems()));
+      log.debug("Ingredient 1: {}", Arrays.toString(i1.getItems()));
+      log.debug("Ingredient 2: {}", Arrays.toString(i2.getItems()));
       log.debug(e.getMessage());
       return false;
     }

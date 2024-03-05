@@ -4,10 +4,11 @@ import java.util.Collections;
 import java.util.List;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
 
-public abstract class RecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
+public abstract class AbstractRecipeProvider extends RecipeProvider {
 
-  protected RecipeProvider(PackOutput packOutput) {
+  protected AbstractRecipeProvider(PackOutput packOutput) {
     super(packOutput);
   }
 

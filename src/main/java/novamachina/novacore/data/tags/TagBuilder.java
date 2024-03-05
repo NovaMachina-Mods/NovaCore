@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagEntry;
 import net.minecraft.tags.TagKey;
 
-public class TagBuilder<TYPE, BUILDER extends TagBuilder<TYPE, BUILDER>> {
+public class TagBuilder<Y, B extends TagBuilder<Y, B>> {
 
   protected final net.minecraft.tags.TagBuilder builder;
   protected final String modID;
@@ -18,32 +18,32 @@ public class TagBuilder<TYPE, BUILDER extends TagBuilder<TYPE, BUILDER>> {
   }
 
   @SuppressWarnings("unchecked")
-  private BUILDER self() {
-    return (BUILDER) this;
+  private B self() {
+    return (B) this;
   }
 
   @SafeVarargs
-  public final BUILDER add(TagKey<TYPE>... tags) {
+  public final B add(TagKey<Y>... tags) {
     return apply(builder::addTag, TagKey::location, tags);
   }
 
-  public BUILDER add(TagEntry tag) {
+  public B add(TagEntry tag) {
     builder.add(tag);
     return self();
   }
 
   @SafeVarargs
-  public final BUILDER add(ResourceKey<TYPE>... keys) {
+  public final B add(ResourceKey<Y>... keys) {
     return add(ResourceKey::location, keys);
   }
 
   @SafeVarargs
-  public final <T> BUILDER add(Function<T, ResourceLocation> locationGetter, T... elements) {
+  public final <T> B add(Function<T, ResourceLocation> locationGetter, T... elements) {
     return apply(builder::addElement, locationGetter, elements);
   }
 
   @SafeVarargs
-  protected final <T> BUILDER apply(
+  protected final <T> B apply(
       Consumer<ResourceLocation> consumer,
       Function<T, ResourceLocation> locationGetter,
       T... elements) {

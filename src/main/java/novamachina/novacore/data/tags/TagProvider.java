@@ -98,23 +98,23 @@ public abstract class TagProvider implements DataProvider {
     return String.format("Tags: %s", modId);
   }
 
-  private <TYPE> Map<TagKey<?>, net.minecraft.tags.TagBuilder> getTagTypeMap(
-      ResourceKey<? extends Registry<TYPE>> registry) {
+  private <T> Map<TagKey<?>, net.minecraft.tags.TagBuilder> getTagTypeMap(
+      ResourceKey<? extends Registry<T>> registry) {
     return supportedTagTypes.computeIfAbsent(registry, type -> new HashMap<>());
   }
 
-  private <TYPE> net.minecraft.tags.TagBuilder getTagBuilder(
-      ResourceKey<? extends Registry<TYPE>> registry, TagKey<TYPE> tag) {
+  private <T> net.minecraft.tags.TagBuilder getTagBuilder(
+      ResourceKey<? extends Registry<T>> registry, TagKey<T> tag) {
     return getTagTypeMap(registry)
         .computeIfAbsent(tag, ignored -> net.minecraft.tags.TagBuilder.create());
   }
 
-  protected <TYPE> TagBuilder<TYPE, ?> getBuilder(
-      ResourceKey<? extends Registry<TYPE>> registry, TagKey<TYPE> tag) {
+  protected <T> TagBuilder<T, ?> getBuilder(
+      ResourceKey<? extends Registry<T>> registry, TagKey<T> tag) {
     return new TagBuilder<>(getTagBuilder(registry, tag), modId);
   }
 
-  protected <TYPE> IntrinsicTagBuilder<TYPE> getBuilder(Registry<TYPE> registry, TagKey<TYPE> tag) {
+  protected <T> IntrinsicTagBuilder<T> getBuilder(Registry<T> registry, TagKey<T> tag) {
     return new IntrinsicTagBuilder<>(
         element -> registry.getResourceKey(element).orElseThrow(),
         getTagBuilder(registry.key(), tag),

@@ -1,5 +1,6 @@
 package novamachina.novacore.client.renderer.blockentity;
 
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -7,10 +8,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public abstract class BlockEntityRenderer<T extends BlockEntity>
-    implements net.minecraft.client.renderer.blockentity.BlockEntityRenderer<T> {
+public abstract class AbstractBlockEntityRenderer<T extends BlockEntity>
+    implements BlockEntityRenderer<T> {
 
-  protected BlockEntityRenderer() {
+  protected AbstractBlockEntityRenderer() {
     super();
   }
 
