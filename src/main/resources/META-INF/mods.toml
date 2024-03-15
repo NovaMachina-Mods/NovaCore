@@ -5,7 +5,7 @@ license="CC BY-NC-SA 4.0"
 
 [[mods]]
     modId="novacore"
-    logoFile="novacore.png"
+    logoFile="logo.png"
     version="2.0.0"
     displayName="NovaCore"
     updateJSONURL="https://api.modrinth.com/updates/engHtMVe/forge_updates.json"

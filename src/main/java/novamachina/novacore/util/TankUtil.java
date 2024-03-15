@@ -8,6 +8,7 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction;
 
@@ -19,7 +20,7 @@ public class TankUtil {
   public static boolean drainWaterFromBottle(
       BlockEntity tileEntity, Player player, IFluidHandler tank) {
     int waterAmount = 333;
-    if (tank.getFluidInTank(0).getAmount() % 1000 == 666) {
+    if (tank.getFluidInTank(0).getAmount() % FluidType.BUCKET_VOLUME == 666) {
       waterAmount = 334;
     }
 
@@ -45,7 +46,7 @@ public class TankUtil {
   public static boolean drainWaterIntoBottle(
       BlockEntity tileEntity, Player player, IFluidHandler tank) {
     int waterAmount = 333;
-    if (tank.getFluidInTank(0).getAmount() % 1000 == 334) {
+    if (tank.getFluidInTank(0).getAmount() % FluidType.BUCKET_VOLUME == 334) {
       waterAmount = 334;
     }
 
