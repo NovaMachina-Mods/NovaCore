@@ -1,6 +1,7 @@
 package novamachina.novacore.util;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.mojang.serialization.JsonOps;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -27,6 +28,6 @@ public class ItemStackHelper {
     return ItemStack.CODEC
         .encodeStart(JsonOps.INSTANCE, itemStack)
         .resultOrPartial(error -> log.error("Unable to encode ItemStack"))
-        .get();
+        .orElse(new JsonObject());
   }
 }
