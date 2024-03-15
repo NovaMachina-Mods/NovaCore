@@ -1,8 +1,6 @@
 package novamachina.novacore.core.registries;
 
 import java.util.function.Supplier;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -38,8 +36,7 @@ public class BlockRegistry extends AbstractRegistry<BlockDefinition<? extends Bl
     BlockItem item =
         new BlockItem(block, new Item.Properties()) {
           @Override
-          public int getBurnTime(
-              @Nonnull final ItemStack itemStack, @Nullable final RecipeType<?> recipeType) {
+          public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType) {
             return 400;
           }
         };

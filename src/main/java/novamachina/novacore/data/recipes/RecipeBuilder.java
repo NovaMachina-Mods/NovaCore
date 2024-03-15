@@ -1,14 +1,15 @@
 package novamachina.novacore.data.recipes;
 
-import com.google.gson.JsonObject;
-import java.util.function.Consumer;
-import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import novamachina.novacore.world.item.crafting.AbstractRecipe;
 
-public abstract class RecipeBuilder<T extends RecipeBuilder<T>> {
+public abstract class RecipeBuilder<T extends AbstractRecipe> {
 
   protected final RecipeSerializer<?> serializer;
 
@@ -16,45 +17,18 @@ public abstract class RecipeBuilder<T extends RecipeBuilder<T>> {
     this.serializer = serializer;
   }
 
-  public void build(Consumer<FinishedRecipe> consumer, ResourceLocation id) {
+  public void build(RecipeOutput consumer, ResourceLocation id) {
     validate(id);
-    consumer.accept(getResult(id));
+    Advancement.Builder advancementBuilder =
+        consumer
+            .advancement()
+            .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+            .rewards(AdvancementRewards.Builder.recipe(id))
+            .requirements(AdvancementRequirements.Strategy.OR);
+    consumer.accept(id, getRecipe(id), advancementBuilder.build(id));
   }
 
-  protected abstract RecipeResult getResult(ResourceLocation id);
+  protected abstract T getRecipe(ResourceLocation id);
 
   protected void validate(ResourceLocation id) {}
-
-  protected abstract class RecipeResult implements FinishedRecipe {
-
-    private final ResourceLocation id;
-
-    public RecipeResult(ResourceLocation id) {
-      this.id = id;
-    }
-
-    @Override
-    @NonNull
-    public ResourceLocation getId() {
-      return this.id;
-    }
-
-    @Override
-    @NonNull
-    public RecipeSerializer<?> getType() {
-      return serializer;
-    }
-
-    @Override
-    @Nullable
-    public JsonObject serializeAdvancement() {
-      return null;
-    }
-
-    @Override
-    @Nullable
-    public ResourceLocation getAdvancementId() {
-      return new ResourceLocation(id.getNamespace(), String.format("recipes/%s", id.getPath()));
-    }
-  }
 }

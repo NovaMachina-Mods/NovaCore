@@ -1,27 +1,26 @@
 package novamachina.novacore.util;
 
 import java.util.Arrays;
-import javax.annotation.Nonnull;
-import lombok.extern.slf4j.Slf4j;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import org.slf4j.Logger;
 
-@Slf4j
 public class IngredientUtils {
+
+  private static final Logger log = org.slf4j.LoggerFactory.getLogger(IngredientUtils.class);
 
   private IngredientUtils() {}
 
-  public static boolean areIngredientsEqual(
-      @Nonnull final Ingredient i1, @Nonnull final Ingredient i2) {
-    @Nonnull final String item1;
-    @Nonnull final String item2;
+  public static boolean areIngredientsEqual(Ingredient i1, Ingredient i2) {
+    String item1;
+    String item2;
     try {
       item1 = Arrays.toString(i1.getItems());
       item2 = Arrays.toString(i2.getItems());
     } catch (Exception e) {
       log.debug("Cannot compare ingredients");
-      log.debug("Ingredient 1: " + Arrays.toString(i1.getItems()));
-      log.debug("Ingredient 2: " + Arrays.toString(i2.getItems()));
+      log.debug("Ingredient 1: {}", Arrays.toString(i1.getItems()));
+      log.debug("Ingredient 2: {}", Arrays.toString(i2.getItems()));
       log.debug(e.getMessage());
       return false;
     }

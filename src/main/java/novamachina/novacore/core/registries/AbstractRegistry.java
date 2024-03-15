@@ -2,15 +2,13 @@ package novamachina.novacore.core.registries;
 
 import java.util.ArrayList;
 import java.util.List;
-import lombok.Getter;
 import net.minecraft.resources.ResourceLocation;
 
 public abstract class AbstractRegistry<T> {
-  @Getter private final List<T> registry;
+  private final List<T> registry = new ArrayList<>();
   private final String modId;
 
   protected AbstractRegistry(String modId) {
-    this.registry = new ArrayList<>();
     this.modId = modId;
   }
 
@@ -19,6 +17,10 @@ public abstract class AbstractRegistry<T> {
   }
 
   protected void register(T registryObject) {
-    registry.add(registryObject);
+    this.registry.add(registryObject);
+  }
+
+  public List<T> getRegistry() {
+    return this.registry;
   }
 }

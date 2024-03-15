@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
@@ -20,13 +21,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import novamachina.novacore.world.level.block.BlockDefinition;
 import novamachina.novacore.world.level.material.FluidDefinition;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 public abstract class TagProvider implements DataProvider {
 
@@ -43,7 +40,7 @@ public abstract class TagProvider implements DataProvider {
       PackOutput output,
       CompletableFuture<HolderLookup.Provider> lookupProvider,
       String modId,
-      @Nullable ExistingFileHelper existingFileHelper) {
+      ExistingFileHelper existingFileHelper) {
     this.output = output;
     this.modId = modId;
     this.lookupProvider = lookupProvider;
@@ -51,7 +48,7 @@ public abstract class TagProvider implements DataProvider {
   }
 
   @Override
-  public @NonNull CompletableFuture<?> run(@NonNull CachedOutput cache) {
+  public CompletableFuture<?> run(CachedOutput cache) {
     return this.lookupProvider
         .thenApply(
             registries -> {
@@ -79,7 +76,7 @@ public abstract class TagProvider implements DataProvider {
                           new TagsProvider(
                               output, registry, lookupProvider, modId, existingFileHelper) {
                             @Override
-                            protected void addTags(HolderLookup.@NonNull Provider lookupProvider) {
+                            protected void addTags(HolderLookup.Provider lookupProvider) {
                               tagTypeMap.forEach(
                                   (tag, tagBuilder) -> builders.put(tag.location(), tagBuilder));
                             }
@@ -97,44 +94,43 @@ public abstract class TagProvider implements DataProvider {
   protected abstract void registerTags();
 
   @Override
-  public @NonNull String getName() {
+  public String getName() {
     return String.format("Tags: %s", modId);
   }
 
-  private <TYPE> Map<TagKey<?>, net.minecraft.tags.TagBuilder> getTagTypeMap(
-      ResourceKey<? extends Registry<TYPE>> registry) {
+  private <T> Map<TagKey<?>, net.minecraft.tags.TagBuilder> getTagTypeMap(
+      ResourceKey<? extends Registry<T>> registry) {
     return supportedTagTypes.computeIfAbsent(registry, type -> new HashMap<>());
   }
 
-  private <TYPE> net.minecraft.tags.TagBuilder getTagBuilder(
-      ResourceKey<? extends Registry<TYPE>> registry, TagKey<TYPE> tag) {
+  private <T> net.minecraft.tags.TagBuilder getTagBuilder(
+      ResourceKey<? extends Registry<T>> registry, TagKey<T> tag) {
     return getTagTypeMap(registry)
         .computeIfAbsent(tag, ignored -> net.minecraft.tags.TagBuilder.create());
   }
 
-  protected <TYPE> TagBuilder<TYPE, ?> getBuilder(
-      ResourceKey<? extends Registry<TYPE>> registry, TagKey<TYPE> tag) {
+  protected <T> TagBuilder<T, ?> getBuilder(
+      ResourceKey<? extends Registry<T>> registry, TagKey<T> tag) {
     return new TagBuilder<>(getTagBuilder(registry, tag), modId);
   }
 
-  protected <TYPE> IntrinsicTagBuilder<TYPE> getBuilder(
-      IForgeRegistry<TYPE> registry, TagKey<TYPE> tag) {
+  protected <T> IntrinsicTagBuilder<T> getBuilder(Registry<T> registry, TagKey<T> tag) {
     return new IntrinsicTagBuilder<>(
         element -> registry.getResourceKey(element).orElseThrow(),
-        getTagBuilder(registry.getRegistryKey(), tag),
+        getTagBuilder(registry.key(), tag),
         modId);
   }
 
   protected IntrinsicTagBuilder<Block> getBlockBuilder(TagKey<Block> tag) {
-    return getBuilder(ForgeRegistries.BLOCKS, tag);
+    return getBuilder(BuiltInRegistries.BLOCK, tag);
   }
 
   protected IntrinsicTagBuilder<Item> getItemBuilder(TagKey<Item> tag) {
-    return getBuilder(ForgeRegistries.ITEMS, tag);
+    return getBuilder(BuiltInRegistries.ITEM, tag);
   }
 
   protected IntrinsicTagBuilder<Fluid> getFluidBuilder(TagKey<Fluid> tag) {
-    return getBuilder(ForgeRegistries.FLUIDS, tag);
+    return getBuilder(BuiltInRegistries.FLUID, tag);
   }
 
   protected void addToTag(TagKey<Block> tag, Block... blocks) {

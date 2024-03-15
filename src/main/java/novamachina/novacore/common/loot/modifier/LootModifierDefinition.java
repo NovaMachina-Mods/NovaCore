@@ -1,13 +1,11 @@
 package novamachina.novacore.common.loot.modifier;
 
 import com.mojang.serialization.Codec;
-import lombok.Getter;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.loot.IGlobalLootModifier;
-import net.minecraftforge.common.loot.LootModifier;
+import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
+import net.neoforged.neoforge.common.loot.LootModifier;
 
-@Getter
 public class LootModifierDefinition<T extends LootModifier> {
   private final ResourceLocation id;
   private final LootItemCondition[] conditions;
@@ -26,7 +24,23 @@ public class LootModifierDefinition<T extends LootModifier> {
   }
 
   public T getModifier() {
-    return this.factory.create(conditions);
+    return this.factory.create(this.conditions);
+  }
+
+  public ResourceLocation getId() {
+    return this.id;
+  }
+
+  public LootItemCondition[] getConditions() {
+    return this.conditions;
+  }
+
+  public Codec<? extends IGlobalLootModifier> getCodec() {
+    return this.codec;
+  }
+
+  public Factory<T> getFactory() {
+    return this.factory;
   }
 
   @FunctionalInterface
