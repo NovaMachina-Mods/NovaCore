@@ -17,11 +17,6 @@ public class IngredientUtils {
    * @return true if test is a subset of source, false otherwise
    */
   public static boolean isIngredientIn(Ingredient test, Ingredient source) {
-    //    for (Holder<Item> stack : test.items()) {
-    //      if (source.test(new ItemStack(stack))) {
-    //        return true;
-    //      }
-    //    }
-    return false;
+    return test.items().anyMatch(stack -> source.acceptsItem(stack));
   }
 }
