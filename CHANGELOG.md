@@ -23,6 +23,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `IngredientUtils` is essentially defunct
 - Fluid textures are no longer set in `FluidDefinition`
 
+### Fixed
+
+- fixed function `novamachina.novacore.util.IngredientUtils.isIngredientIn` to not always return `false`
+
 ## [3.0.0](https://github.com/NovaMachina-Mods/NovaCore/compare/v2.0.0...v3.0.0) - 2024-07-09
 
 ### Added
